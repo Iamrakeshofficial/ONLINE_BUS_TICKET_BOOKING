@@ -1,0 +1,39 @@
+{% include 'base.html' %}
+{% load static %}
+
+<style type="text/css">
+.container
+{
+    background-image:url('https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg?w=2000')
+    height:100%;
+    width:100%;
+}
+</style>
+
+{% block content %}
+<body>
+<center><h1>Customer Details</h1></center>
+<div class="container" >
+ <div class="jumbotron">
+<div class="row">
+ <div class="col-sm-4 offset-3">
+ <form class="re" action="" method="post" novalidate>
+  {% csrf_token %}
+  {% if form.non_field_errors %}
+   {% for error in form.non_field_errors %}
+    <p class="er">{{error}}</p>
+   {% endfor %}
+  {% endif %}
+  {% for fm in form %}
+   {{fm.label_tag}} {{fm}}  <br><br>
+  {% endfor %}
+  <input type="text" name="bus" value="{{bus}}"><br><br>
+  <input  type="submit" class="btn btn-success" value="Submit">
+ </form>
+ </div>
+</div>
+</div>
+</div>
+
+{% endblock %}
+</body>

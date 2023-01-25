@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+<style type="text/css">
+ .priya{
+ background-image:url('https://img.freepik.com/premium-photo/concept-contact-us-blank-wooden-cubes-square-dice-with-symbol-email-telephone-address-placed-wood-background_44868-1254.jpg?w=2000')
+ }
+</style>
+<body>
+<div class="priya">
+ {% for post in page_obj %}
+ <h1>{{post.bus_name}}</h1>
+  <h2>{{post.travels}}</h2>
+
+ {% endfor %}
+
+ <div>
+  <span>
+   {% if page_obj.has_previous %}
+   <button><a href="?page={{page_obj.previous_page_number}}">Previous</a></button>
+   {% endif %}
+
+    <span>{{ page_obj.number }}</span>
+
+   {% if page_obj.has_next %}
+   <button><a href="?page={{page_obj.next_page_number}}">Next</a></button>
+   {% endif %}
+  </span>
+ </div>
+</div>
+</body>
+{% endblock %}
+</html>
+
+
+
+
+
+
+

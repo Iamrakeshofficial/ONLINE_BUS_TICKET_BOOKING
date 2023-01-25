@@ -1,0 +1,50 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>List Of Buses are available for your destination. </h1>
+<body bgcolor="">
+
+<table  class="table table-striped" border="2px" padding="5px">
+    <thead style="background-color: blue;color: white;">
+        <tr>
+            <th>ID</th>
+            <th>SOURCE</th>
+            <th>DESTINATION</th>
+            <th>BUS_NAME</th>
+            <th>VEHICLE_NUM</th>
+            <th>START_TIME</th>
+            <th>ARRIVAL_TIME</th>
+            <th>DRIVER_PHONO</th>
+            <th>PRICE</th>
+            <th>NO OF SEATS</th>
+            <th>REMAINING SEATS</th>
+            <th>BUS TYPE</th>
+        </tr>
+    </thead>
+{% for i in buses %}
+
+
+{% if i.destination_one.id == destination and i.source.id == origin %}
+
+<tr>
+    <td>{{i.id}}</td>
+    <td>{{i.source}}</td>
+    <td>{{i.destination_one}}</td>
+    <td><b>{{i.bus_name}}</b> <br><a href="{% url 'customer' i.bus_name %}">Select for Booking</a></td>
+    <td>{{i.vehicle_num}}</td>
+    <td>{{i.start_time}}</td>
+    <td>{{i.arrival_time}}</td>
+    <td>{{i.driver_no}}</td>
+    <td>{{i.price}}</td>
+    <td>{{i.nos}}</td>
+    <td>{{i.rem}}</td>
+    <td>{{i.bus_type}}</td>
+</tr>
+{% endif %}
+{% endfor %}
+
+</table>
+
+
+{% endblock %}

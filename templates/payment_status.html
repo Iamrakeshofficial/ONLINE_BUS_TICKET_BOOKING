@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+    </head>
+
+    <body>
+        {% if status %}
+            <div class="container" style="text-align:center;">
+
+            <h2>Your Payment Was Successfull</h2>
+
+        {% else %}
+                <h2>Your Payment is Failed Try Again..</h2>
+
+        {% endif %}
+    </div>
+    </body>
+</html>

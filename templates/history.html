@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<center><h1>All Passenger Booking History</h1></center>
+<table class="table table-striped" border="2px" padding="5px">
+    <thead style="background-color: blue;color: white;">
+    <tr>    
+        <th>Cust_NAME</th>
+        <th>Bus Name</th>
+        <th>Adhar No</th>
+        <th>Origin</th>
+        <th>Destination</th>
+
+    </tr>
+</thead>
+    {% for i in ticket_history %}
+    <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.bus_name}}</td>
+        <td>{{i.aadhar_no}} </td>
+        <td>{{i.origin}}</td>
+        <td>{{i.destination}}</td>
+
+
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

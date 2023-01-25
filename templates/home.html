@@ -1,0 +1,53 @@
+
+{%  extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<html>
+<head>
+<style>
+
+
+.bus
+{
+        background-image:url("https://st.redbus.in/bo-images/IND/WM/15959/1098/FR/L/WKy9zU.jpeg");
+        background-size:100%;
+        background-color:cyan;
+        height:100vh;
+        width:100vw;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        }
+
+   
+</style>
+</head>
+<body>
+
+<div class="d-flex flex-column w-100 justify-content-center align-items-center">
+   
+    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+        <div class="card card-default rounded-0 shadow">
+            <div class="card-header">
+                <h4 class="card-title"><b>Find Your Bus Here</b></h4>
+                </div>
+                <div class="card-body">
+                    <div class="container-fluid">
+
+
+<form  action="" method="post">
+    {% csrf_token %}
+   {{form.as_p}}
+
+    <input type="submit" class="btn btn-success" value="Submit">
+
+</form>
+        {% endblock %}
+        </div>
+</div>
+</div>
+
+</body>
+</html>

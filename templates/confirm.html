@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid" align="center">
+    <div class="jumbotron">
+<h1 > Confirm Your Details </h1>
+
+
+{% for i,j in cust.items %}
+{% if i != 'csrfmiddlewaretoken' %}
+
+<h3>{{i}} - {{j}}</h3>
+
+{% endif %}
+{% endfor %}
+
+{% for i in l %}
+<!--{{i}}-->
+
+{% endfor %}
+
+        <H4> Ticket-Price:{{price}}</H4>
+
+<a href="{% url 'payment' %}"><input type="submit" class="btn btn-primary" value="Praceed To Pay "></a>
+<a href="{% url 'home' %}"><input type="submit" class="btn btn-danger" value="Cancel "></a>
+
+</div>
+    </div>
+{% endblock %}
+

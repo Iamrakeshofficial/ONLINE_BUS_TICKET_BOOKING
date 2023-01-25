@@ -1,0 +1,38 @@
+{% include 'base.html' %}
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   
+{% if user.is_authenticated %}
+
+<center><h1> Booking History Of {{request.user}}</h1></center>
+<table class="table table-striped" border="2px" padding="5px" align="center">
+    <thead style="background-color: blue;color: white;">
+    <tr>
+        <th>User Name</th>
+        <th>Customer Name</th>
+        <th>Travel Name</th>
+        <th>No of Tickets</th>
+        <th>Origin</th>
+        <th>destination</th>
+    </tr>
+</thead>
+{% for i in obj %}
+<tr>
+    <td>{{i.user}}</td>
+    <td>{{i.name}}</td>
+    <td>{{i.bus_name}}</td>
+    <td>{{i.no_tkt}}</td>
+    <td>{{i.origin}}</td>
+    <td>{{i.destination}}</td>
+</tr>
+
+{% endfor %}
+{% endif %}
+</table>
+</body>
+</html>

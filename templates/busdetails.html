@@ -1,0 +1,35 @@
+{%  extends 'base.html' %}
+{% load static %}
+{% block content %}
+<CENTER><h1>NEW AGENCY</h1></CENTER>>
+<STYLE>
+body {
+    background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCymlf6ZjmAB2d8Y5l8xe9-Wv6kCVF65RkcQ&usqp=CAU');
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+.jumbotron{
+    margin-left:20%;
+    margin-right:30%;
+
+}
+</STYLE>
+<body>
+<div class="container">
+    <div class="jumbotron">
+<form action="" method="post" novalidate>
+    {% csrf_token %}
+    {{form.as_p}}
+
+
+
+    <input type="submit" class="btn btn-success" value="Submit">
+<!--     <a href="{}" class="btn btn-info">Back to Home</a>-->
+
+</form>
+
+
+{% endblock %}
+    </div>
+</div>
+</body>

@@ -1,0 +1,54 @@
+{% include 'base.html' %}
+{% load static %}
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Signup Form..!!!!!</title>
+     <link rel="stylesheet" href="{% static  'css/bootstrap.min.css' %}">
+</head>
+<style type="text/css">
+.priya
+    {
+    background-image:url('https://png.pngtree.com/thumb_back/fh260/background/20220112/pngtree-glass-morphim-effect-registration-banner-with-gradient-blue-image_934693.jpg')
+    }
+.jumbotron{
+    margin-left:10%;
+
+}
+
+</style>
+
+<body>
+<center><h1>Sign Up Form</h1></center>
+<div class="priya">
+<div class="container">
+    <div class="jumbotron">
+<div class="row">
+<div class="col-sm-4 offset-2">
+<form method="post" novalidate>
+    {% csrf_token %}
+    {% for fm in form %}
+        {{fm.label_tag}} {{fm}} {{fm.errors|striptags}}<br><br>
+    {% endfor %}
+<!--   {{form}}-->
+ <input type="submit" class="btn btn-success" VALUE="Submit"><br><br>
+</form>
+
+
+
+{% if messages %}
+ {% for message in messages %}
+  <small {% if message.tags %} class="{{message.tags}}" {% endif %}> {{message}} </small>
+ {% endfor %}
+ {% endif %}
+ <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+<a href="{%  url 'logout' %}" class="btn btn-danger">Logout</a>
+<a href="{% url 'home' %}" class="btn btn-info">Home</a>
+    </div>
+</div>
+</div>
+    </div>
+</div>
+</body>
+</html>
